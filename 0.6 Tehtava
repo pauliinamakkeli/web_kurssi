@@ -1,0 +1,36 @@
+kayttaja->selain:
+note left of selain
+Käyttäjä on osoitteeesa
+fullstack-exampleapp.herokuapp.com/spa
+ja kirjoittaa uuden muistiinpanon 
+"Testi muistiinpano"
+end note
+
+selain->palvelin: POST fullstack-exampleapp.herokuapp.com/new_note_spa
+
+note left of palvelin
+Lomakkeen tietojen lähettämisen hoitaa selaimen
+lataamassa Javascript-tiedostossa määritelty koodi. 
+
+Jvascript-tiedostossa oleva koodi hakee sivulta lomake-elementin
+ja rekisteröi sille tapahtumankäsittelijän hoitamaan
+lomakkeen lähettämisen. Tapahtumankäsittelijä
+luo muistiinpanon, lisää sen muistiinpanojen
+listalle, piirtää muistiinpanojen listan uudelleen
+ja lähettää uuden muistiinpanon palvelimelle.
+Palvelimelle lähetettävä POST-pyyntö sisältää sisältää
+JSON-muodossa olevan uuden muistiinpanon. 
+end note
+
+palvelin->selain: status 201 (Created)
+
+note left of palvelin
+Selain pysyy samalla sivulla ja muita pyyntöjä ei lähetetä.
+end note
+
+note left of selain
+ Selain näyttää muistiinpanojen 
+ sivun, johon on lisätty uusin muistiinpano
+ "Testi muistiinpano"
+end note
+
