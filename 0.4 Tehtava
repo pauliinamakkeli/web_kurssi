@@ -1,0 +1,38 @@
+kayttaja->selain:
+note left of selain
+kayttajä on sivulla 
+fullstack-exampleapp.herokuapp.com/notes
+ja kirjoitta tekstikenttään "Testi muistiinpano"
+end note
+selain->palvelin: POST fullstack-exampleapp.herokuapp.com/new_note
+
+note left of palvelin
+Kun käyttäjä painaa lomakkeen painiketta,
+selain lähettää lomakkeelle syötetyn datan palvelimelle
+end note
+
+palvelin->selain: status 302, sivun HTML-koodi
+
+note left of palvelin
+Palvelin vastaa statuskoodilla 302, joka tarkoittaa
+uudelleenohjauspyyntöä. Palvelin kehoittaa selainta 
+tekemään uuden GET pyynnön osoitteeseen /notes
+end note
+
+selain->palvelin: GET fullstack-exampleapp.herokuapp.com/notes
+palvelin->selain: status 200, sivun HTML-koodi
+
+selain->palvelin: GET fullstack-exampleapp.herokuapp.com/main.css
+palvelin->selain: status 200, css-tiedosto sivun ulkoasua varten
+
+selain->palvelin: GET fullstack-exampleapp.herokuapp.com/main.js
+palvelin->selain: status 200, javascript-tiedosto
+
+selain->palvelin: GET fullstack-exampleapp.herokuapp.com/data.json
+palvelin->selain: status 200, muistiinpanot raakadatana
+
+note left of selain
+ Selain näyttää muistiinpanojen sivun, johon on lisätty
+ uusi muistiinpano "Testi muistiinpano"
+end note
+
